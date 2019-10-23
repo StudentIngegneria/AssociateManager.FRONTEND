@@ -1,0 +1,183 @@
+<div>
+  <h1 style="text-align: center"> Benvenuto in StudentIngegneria! </h1>
+  <form id="addMember">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="membershipId">Numero di Tessera</label>
+          <input type="number" class="form-control" id="membershipId" placeholder="404" required></input>
+          <div class="invalid-feedback">
+            Il numero di tessera è obbligatorio!
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="quote">Quota</label>
+          <input type="number" class="form-control" id="quote" placeholder="€" min="3" required></input>
+          <div class="invalid-feedback">
+            Inserisci una quota!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" class="form-control" id="name" placeholder="Guidavo" required>
+          <div class="invalid-feedback">
+            Il nome è obbligatorio!
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="surname">Cognome</label>
+          <input type="text" class="form-control" id="surname" placeholder="La Barca" required>
+          <div class="invalid-feedback">
+            Il cognome è obbligatorio!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input type="text" class="form-control" id="mail" placeholder="nome.cognome@dominio.org" required>
+          <div class="invalid-feedback">
+            Inserisci un indirizzo email!
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="name">Numero di Cellulare</label>
+          <input type="text" class="form-control" id="phone" placeholder="+39 123456789">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <select class="form-control" id="status_" required>
+            <option disabled selected value> -- Seleziona un'opzione -- </option>
+            <option value="student">Studente</option>
+            <option value="professionist">Laureato</option>
+            <option value="phd_student">Dottorato</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="Student_">
+      <div class="col">
+        <div class="form-group">
+          <label for="degreeId">Corso di Laurea</label>
+          <select class="form-control" id="degreeId">
+            <option disabled selected value> -- Seleziona un'opzione -- </option>
+          </select>
+          <div class="invalid-feedback">
+            Inserisci un corso di laurea!
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="uniNumber">Matricola</label>
+          <input type="text" class="form-control" id="uniNumber" placeholder="064201234"></input>
+        </div>
+        <div class="invalid-feedback">
+          Inserisci un numero di matricola!
+        </div>
+      </div>
+    </div>
+    <div class="row" id="Professionist_">
+      <div class="col">
+        <div class="form-group">
+          <label for="profession">Professione</label>
+          <input type="text" class="form-control" id="profession"></input>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="checkboxGDPR" required></input>
+          <label class="form-check-label" for="checkboxGDPR">
+            Autorizzo il trattamento dei miei dati personali ai sensi
+            del Dlgs 196 del 30 giugno 2003 e dell’art. 13 GDPR
+            (Regolamento UE 2016/679) all'uso per fini statistici.
+            Autorizzo inoltre a ricevere comunicazioni inerenti attività promosse
+            dall'associazione tramite i contatti qui forniti.
+          </label>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div style="text-align: center">
+      <button type="submit" class="btn btn-primary">Inserisci</button>
+    </div>
+  </form>
+
+
+  <!-- Successful request modal -->
+  <div class="modal fade" id="successful_submit_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tesseramento Completato</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          La tua richiesta è andata a buon fine, la pagina sarà aggiornata a breve.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Duplicate request modal -->
+  <div class="modal fade" id="duplicate_error_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tesseramento Non Completato</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Esiste già un membro con questo numero di tessera.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error request modal -->
+  <div class="modal fade" id="unknown_error_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tesseramento Non Completato</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Errore sconosciuto.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/libs/conditional-field.min.js"></script>
+  <script src="/scripts/addMember.js"></script>
+</div>
