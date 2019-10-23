@@ -1,0 +1,44 @@
+<h1 id="header"></h1>
+<div style="text-align: center">
+  <button class="btn btn-primary" data-toggle="modal" data-target="#new_reg_modal"> Apri un nuovo tesseramento!</button>
+</div>
+<br>
+<table class="table" data-toggle="table">
+  <thead>
+    <tr>
+      <th scope="col"> Anno </th>
+      <th scope="col"> Apertura </th>
+      <th scope="col"> Chiusura </th>
+    </tr>
+  </thead>
+  <tbody id="registrationstablebody">
+  </tbody>
+</table>
+
+<!-- New Registration Modal -->
+<div class="modal fade" id="new_reg_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nuovo Tesseramento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="newRegistrationSeason">
+          <div class="form-group" style="width: 20%">
+            <label for="membershipId">Anno</label>
+            <input type="number" class="form-control" id="insertYear" placeholder="3019" required></input>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn" form="newRegistrationSeason">Inserisci</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/libs/date.format.js"></script>
+<script src="/scripts/registrations.js"></script>
